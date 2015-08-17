@@ -1,0 +1,27 @@
+# Maintainer: Maximilien Noal (noal dot maximilien at gmail dot com) [AUR: xcomcmdr]
+
+pkgname=touhy-meta-git
+_gitname=touhy
+pkgver=69.c2e9fda
+pkgrel=1
+pkgdesc="Meta package for Elzen's desktop Environment"
+arch='any'
+license='GPL3'
+install='touhy.install'
+url='http://fadrienn.irlnc.org/touhy/'
+depends=("elzunit-git" "elzdraw-git" "elzedit-git" "elzfold-git" \
+  "elzlist-git" "elznote-git" "elzplay-git" "elzread-git" \
+  "elzshow-git" "elzterm-git" "elzview-git" "elzword-git" \
+  "elzgame-git")
+makedepends='git'
+md5sums=('SKIP')
+source=('git://fadrienn.irlnc.org/touhy')
+
+pkgver() {
+  cd ${srcdir}/${_gitname}
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
+
+package() {
+  return 0
+}
